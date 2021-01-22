@@ -494,7 +494,7 @@ ra_find_node(RedisArray *ra, const char *key, int key_len, int *out_pos)
             void *ctx = emalloc(ops->context_size);
             unsigned char *digest = emalloc(ops->digest_size);
 
-            ops->hash_init(ctx);
+            ops->hash_init(ctx,NULL);
             ops->hash_update(ctx, (const unsigned char *)ZSTR_VAL(out), ZSTR_LEN(out));
             ops->hash_final(digest, ctx);
 
